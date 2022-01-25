@@ -21,36 +21,36 @@
 
   <div id="header-middle">
     <h1 id="logo">
-      <a href="#"><img src="./images/logo4.png" alt="북악하늘_작은도서관" height="80"></a>
+      <a href="#"><img src="./images/logo.png" alt="북악하늘_작은도서관" height="80"></a>
     </h1>
-    <div id="search-box">
-      <label for="category"></label>
-      <select id="category">
+    <div id="search-container">
+      <label for="search-criteria"></label>
+      <select id="search-criteria">
         <option value="all">통합</option>
         <option value="title">제목</option>
         <option value="writer">지은이</option>
         <option value="publisher">출판사</option>
         <option value="ISBN">ISBN</option>
       </select>
-      <label for="search"></label>
-      <input type="text" id="search" placeholder="원하는 도서를 검색하세요." required autocomplete="off">
-      <label for="submit"></label>
-      <button id="submit">검색</button>
+      <label for="search-input"></label>
+      <input type="text" id="search-input" placeholder="원하는 도서를 검색하세요." required autocomplete="off">
+      <label for="search-btn"></label>
+      <button id="search-btn">검색</button>
     </div>
   </div>
 
-  <nav>
-    <ul>
+  <nav id="header-bottom">
+    <ul id="nav-list">
       <li class="nav-item">북악하늘 소개</li>
       <li class="nav-item">도서관 이용</li>
       <li class="nav-item">도서관 소식</li>
       <li class="nav-item">도서관1</li>
-      <li class="nav-item">도서관2</li>
+      <li class="nav-item">북악카페</li>
     </ul>
   </nav>
 </header>
 
-
+<script src="./main-page.js"></script>
 </body>
 
 </html>
