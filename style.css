@@ -8,17 +8,18 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 /* 유틸 메뉴 */
 #header-top #util {
-  text-align: right;
-  margin: 5px 30px 0 30px;
+  display: flex;
+  justify-content: flex-end;
+  margin: 5px 0 0 0;
   padding: 0 100px;
   height: 40px;
   line-height: 30px;
 }
 
 #util .util-item {
-  display: inline-block;
   margin: 0;
   padding: 5px 10px;
+  float: left;
   font-size: 13px;
 }
 
@@ -117,7 +118,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 400px;
+  width: 410px;
   height: 35px;
   position: absolute;
   top: 45px;
@@ -135,3 +136,44 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 /* 이것만으로는 적용이 안됨. 우선순위에서 밀리는 듯 */
 .is-active { visibility: visible; }
+
+#login-form {
+  margin: 50px auto;
+  padding: 30px 15px;
+  width: 400px;
+  border: 2px solid #8c7b75;
+  border-radius: 4px;
+  text-align: center;
+  /* background-color: orange; */
+}
+
+#user-id, #user-pw {
+  margin: 5px 0;
+  padding: 5px;
+  width: 300px;
+  height: 40px;
+  border: 3px solid #dfdfdf;
+  border-radius: 5px;
+}
+
+#login-btn {
+  margin: 5px 0;
+  width: 300px;
+  height: 45px;
+  border: none;
+  border-radius: 5px;
+  background-color: #a98274;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+}
+
+#login-btn:hover { background-color: #8d6e63; }
+#login-btn:active { background-color: #a98274; }
+
+#find-pw {
+  display: inline-block;
+  color: #8c7b75;
+  font-size: 12px;
+  text-decoration: underline;
+}

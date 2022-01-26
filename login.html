@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>북악하늘 작은 도서관</title>
+<title>로그인</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -21,7 +21,7 @@
 
   <div id="header-middle">
     <h1 id="logo">
-      <a href="#"><img src="./images/main_logo.png" alt="북악하늘_작은도서관" height="80"></a>
+      <a href="/main-page.html"><img src="./images/main_logo.png" alt="북악하늘_작은도서관" height="80"></a>
     </h1>
     <div id="search-container">
       <select id="search-criteria">
@@ -83,8 +83,15 @@
   </nav>
 </header>
 
-<main></main>
-
+<!-- 로그인창 -->
+<main>
+  <form id="login-form">
+    <input id="user-id" type="text" placeholder="아이디" autofocus>
+    <input id="user-pw" type="password" placeholder="비밀번호">
+    <button id="login-btn">로그인</button>
+    <a id="find-pw" href="#">비밀번호를 잊어버리셨나요?</a>
+  </form>
+</main>
 <footer></footer>
 
 <script src="./main-page.js"></script>
