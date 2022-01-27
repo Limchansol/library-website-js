@@ -4,24 +4,25 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>북악하늘 작은 도서관</title>
-<link rel="stylesheet" href="style.css">
+<title>북악하늘 작은도서관</title>
+<link rel="stylesheet" href="./main-page.css">
 </head>
 
 <body>
 
+<!-- 헤더 -->
 <header>
   <div id="header-top">
     <ul id="util">
       <li class="util-item"><a href="./login.html">로그인</a></li>
-      <li class="util-item"><a href="#">회원가입</a></li>
+      <li class="util-item"><a href="./signup.html">회원가입</a></li>
       <li class="util-item"><a href="#">나의 공간</a></li>
     </ul>
   </div>
 
   <div id="header-middle">
     <h1 id="logo">
-      <a href="#"><img src="./images/main_logo.png" alt="북악하늘_작은도서관" height="80"></a>
+      <a href="./main-page.html"><img src="./images/main_logo.png" alt="북악하늘_작은도서관" height="80"></a>
     </h1>
     <div id="search-container">
       <select id="search-criteria">
@@ -31,7 +32,7 @@
         <option value="publisher">출판사</option>
         <option value="ISBN">ISBN</option>
       </select>
-      <input type="text" id="search-input" placeholder="원하는 도서를 검색하세요." required autocomplete="off">
+      <input type="search" id="search-input" placeholder="원하는 도서를 검색하세요." required autocomplete="off">
       <button id="search-btn">검색</button>
     </div>
   </div>
@@ -83,11 +84,25 @@
   </nav>
 </header>
 
-<main></main>
+<!-- 메인 -->
+<main>
+  <div id="notice">
+    <button id="previous"><</button>
+    <button id="next">></button>
+    <img id="img1" class="notice-img" src="./images/img1.png" alt="img1" width="270" height="270">
+    <img id="img2" class="notice-img is-hidden" src="./images/img2.png" alt="img2" width="270" height="270">
+    <img id="img3" class="notice-img is-hidden" src="./images/img3.png" alt="img3" width="270" height="270">
+    <img id="img4" class="notice-img is-hidden" src="./images/img4.png" alt="img4" width="270" height="270">
+  </div>
+</main>
 
+
+<!-- 푸터 -->
 <footer></footer>
 
-<script src="./main-page.js"></script>
+
+<!-- 스크립트 -->
+<script type="module" src="./main-page.js"></script>
 </body>
 
 </html>
