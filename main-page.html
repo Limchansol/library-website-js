@@ -5,6 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>북악하늘 작은도서관</title>
+<link rel="stylesheet" href="./header.css">
 <link rel="stylesheet" href="./main-page.css">
 </head>
 
@@ -60,7 +61,7 @@
         <span>도서관 소식</span>
         <ul class="nav-sub-list">
           <li class="nav-sub-item">공지사항</li>
-          <li class="nav-sub-item">영화로 보는 세상 읽기</li>
+          <li class="nav-sub-item">영화로 세상 읽기</li>
           <li class="nav-sub-item">도서관 소식3</li>
         </ul>
       </li>
@@ -82,26 +83,39 @@
       </li>
     </ul>
   </nav>
+
+  <!-- 페이지 맨 위로 이동 -->
+  <a href="#" id="to-top"></a>
 </header>
+<!-- 헤더 끝 -->
 
 <!-- 메인 -->
 <main>
   <div id="notice">
-    <button id="previous"><</button>
-    <button id="next">></button>
     <img id="img1" class="notice-img" src="./images/img1.png" alt="img1" width="270" height="270">
     <img id="img2" class="notice-img is-hidden" src="./images/img2.png" alt="img2" width="270" height="270">
     <img id="img3" class="notice-img is-hidden" src="./images/img3.png" alt="img3" width="270" height="270">
     <img id="img4" class="notice-img is-hidden" src="./images/img4.png" alt="img4" width="270" height="270">
+    <button id="previous"><</button>
+    <button id="next">></button>
+    <div id="index-mark-container">
+      <span class="index-mark" style="opacity: 1;"></span>
+      <span class="index-mark"></span>
+      <span class="index-mark"></span>
+      <span class="index-mark"></span>
+    </div>
   </div>
 </main>
+<!-- 메인 끝 -->
 
 
 <!-- 푸터 -->
 <footer></footer>
+<!-- 푸터 끝 -->
 
 
 <!-- 스크립트 -->
+<script type="module" src="./header.js"></script>
 <script type="module" src="./main-page.js"></script>
 </body>
 

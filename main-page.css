@@ -1,3 +1,5 @@
+/* 메인 */
+
 * { box-sizing: border-box; }
 
 body { margin: 0; padding: 0; }
@@ -6,143 +8,10 @@ a { text-decoration: none; color: black; }
 
 ul { list-style: none; margin: 0; padding: 0; }
 
-/* 헤더 시작 */
-/* 유틸 메뉴 */
-#header-top #util {
-  display: flex;
-  justify-content: flex-end;
-  margin: 5px 0 0 0;
-  padding: 0 100px;
-  height: 40px;
-  line-height: 30px;
-}
-
-#util .util-item {
-  margin: 0;
-  padding: 5px 10px;
-  float: left;
-  font-size: 13px;
-}
-
-#util .util-item:hover { background-color: #efebe9; }
-
-/* 로고 및 검색창 */
-#header-middle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-#logo { margin: 0; padding: 0; }
-
-#search-container {
-  display: flex;
-  align-items: center;
-  margin: 0 20px;
-  padding: 0 5px;
-  width: 600px;
-  height: 50px;
-  border: 3px solid #dfdfdf;
-  border-radius: 50px;
-  background-color: #fff;
-}
-
-#search-criteria {
-  width: 80px;
-  height: 35px;
-  border: none;
-  border-radius: 50px 0 0 50px;
-  background-color: #efebe9;
-  text-align: center;
-}
-
-#search-input {
-  margin: 0 5px;
-  padding: 0 5px;
-  width: 415px;
-  height: 35px;
-  border: none;
-  background-color: #fff;
-}
-
-#search-btn {
-  width: 80px;
-  height: 35px;
-  border: none;
-  border-radius: 0 50px 50px 0;
-  background-color: #efebe9;
-  cursor: pointer;
-}
-
-#search-btn:hover { background-color: #ebe3df; }
-
-#search-btn:active { background-color: #efebe9; }
-
-/* 네비게이션 */
-#header-bottom { position: relative; z-index: 100;}
-
-#nav-list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  padding: 0;
-  height: 45px;
-  background-color: #a98274;
-}
-
-#nav-list .nav-item {
-  margin: 0;
-  padding: 10px 30px;
-  height: 45px;
-  float: left;
-  position: relative;
-  color: white;
-  cursor: pointer;
-}
-
-#nav-list .nav-item:hover { border-bottom: 5px solid #795548; }
-
-#sub-nav {
-  width: 100%;
-  height: 35px;
-  position: absolute;
-  top: 45px;
-  left: 0;
-  box-shadow: 0 2px 4px #725b53;
-  background-color: #be9c91;
-  visibility: hidden;
-}
-
-.nav-sub-list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 410px;
-  height: 35px;
-  position: absolute;
-  top: 45px;
-  left: 50%;
-  transform: translateX(-50%);
-  visibility: hidden;
-}
-
-.nav-sub-list .nav-sub-item {
-  margin: 0 15px;
-  float: left;
-}
-
-.nav-sub-list .nav-sub-item:hover { color: #3e2723; }
-
-/* 이것만으로는 적용이 안됨. 우선순위에서 밀리는 듯 */
-/* visibility를 쓰면 보이지 않지만 공간은 차지하고 있음. 그럼 diplay none 써야하나 */
-.is-active { visibility: visible; }
-/* 헤더 끝 */
-
-/* 메인 시작 */
-
 #notice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 20px;
   width: 300px;
   height: 300px;
@@ -151,6 +20,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   border-radius: 5px;
   overflow: hidden;
   text-align: center;
+  /* background-color: orchid; */
 }
 
 #notice #previous, #notice #next {
@@ -166,6 +36,25 @@ ul { list-style: none; margin: 0; padding: 0; }
 #notice #previous { left: 0; }
 #notice #next { right: 0; }
 
+/* .notice-img { background-color: paleturquoise; } */
+
 .is-hidden { display: none; }
+
+#index-mark-container {
+  position: absolute;
+  bottom: 0;
+  /* background-color: orange;  */
+}
+
+.index-mark {
+  display: inline-block;
+  margin: 2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #40241a;
+  opacity: 0.5;
+}
+
 
 /* 메인 끝 */

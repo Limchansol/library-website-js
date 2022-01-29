@@ -1,109 +1,80 @@
-const $criteria = document.querySelector('#search-criteria');
-const $searchInput = document.querySelector('#search-input');
-const $searchBtn = document.querySelector('#search-btn');
-const $subNav = document.querySelector('#sub-nav');
-const $$navItems = document.querySelectorAll('.nav-item');
-let criteria;
-let search;
-
-/* 헤더 시작 */
-// 검색 버튼 클릭 (검색 기준 및 검색 내용 저장)
-function onClickSearchBtn() {
-  criteria = $criteria.value;
-  search = $searchInput.value;
-}
-$searchBtn.addEventListener('click', onClickSearchBtn);
-$searchInput.addEventListener('keypress', (event) => {
-  if (event.key === 'Enter' && !event.shiftKey) {
-    onClickSearchBtn();
-    event.preventDefault();
-  }
-});
-
-// visability 변경 (클래스만으로도 바뀌도록 수정할 것)
-function activate($target) {
-  $target.classList.add('is-acitve');
-  $target.style.visibility = 'visible';
-}
-function deactivate($target) {
-  $target.classList.remove('is-acitve');
-  $target.style.visibility = 'hidden';
-}
-for (let $navItem of $$navItems) {
-  $navItem.addEventListener('mouseover', function() {
-    activate($subNav);
-    activate(this.querySelector('.nav-sub-list'));
-  });
-  $navItem.addEventListener('mouseout', function() {
-    deactivate($subNav);
-    deactivate(this.querySelector('.nav-sub-list'));
-  });
-}
-/* 헤더 끝 */
-
 /* 메인 시작 */
+
 const $notice = document.querySelector('#notice');
 const $$noticeIMG = document.querySelectorAll('#notice .notice-img');
 const $previousBtn = document.querySelector('#notice #previous');
 const $nextBtn = document.querySelector('#notice #next');
+const $$indexMarks = document.querySelectorAll('#notice .index-mark');
 const imgNumber = $$noticeIMG.length;
 let interval;
-let prevIndex = imgNumber;
-let IMGindex = 1;
-let nextIndex = IMGindex + 1;
+let prevImgIndex = imgNumber;
+let currIMGindex = 1;
+let nextImgIndex = currIMGindex + 1;
 
-function hide($target) { $target.classList.add('is-hidden'); }
-function appear($target) { $target.classList.remove('is-hidden'); }
+function hide($target, index) {
+  // 타겟을 따로 변수에 담아놓는 것과 그냥 인덱스로 선택하는 것 중 뭐가 나을까
+  $target.classList.add('is-hidden');
+  // $$noticeIMG[index - 1].classList.add('is-hidden');
+  $$indexMarks[index - 1].style.opacity = 0.5;
+}
+function appear($target, index) {
+  $target.classList.remove('is-hidden');
+  $$indexMarks[index - 1].style.opacity = 1;
+}
 
+// 소식 이미지 자동 변경
 function changeNoticeIMG() {
   interval = setInterval(() => {
-    prevIndex = IMGindex;
-    IMGindex = nextIndex;
-    nextIndex = IMGindex !== imgNumber ? IMGindex + 1 : 1;
-    const $currentIMG = document.querySelector(`#notice #img${IMGindex}`);
-    const $prevIMG = document.querySelector(`#notice #img${prevIndex}`);
+    prevImgIndex = currIMGindex;
+    currIMGindex = nextImgIndex;
+    nextImgIndex = currIMGindex !== imgNumber ? currIMGindex + 1 : 1;
+    const $currentIMG = document.querySelector(`#notice #img${currIMGindex}`);
+    const $prevIMG = document.querySelector(`#notice #img${prevImgIndex}`);
     // console.log('cn', '$커런트이미지', $currentIMG);
     // console.log('cn', '$이전이미지', $prevIMG);
     // console.log('cn', '이전 인덱스', prevIndex);
     // console.log('cn', '이미지인덱스', IMGindex);
     // console.log('cn', '다음인덱스', nextIndex);
-    hide($prevIMG);
-    appear($currentIMG);
+    hide($prevIMG, prevImgIndex);
+    appear($currentIMG, currIMGindex);
   }, 2500);
 }
+
+// 이전 이미지로
 function toPreviousIMG() {
   clearInterval(interval);
-  const $currentIMG = document.querySelector(`#notice #img${IMGindex}`);
-  const $prevIMG = document.querySelector(`#notice #img${prevIndex}`);
+  const $currentIMG = document.querySelector(`#notice #img${currIMGindex}`);
+  const $prevIMG = document.querySelector(`#notice #img${prevImgIndex}`);
   // console.log('tpi', '$커런트이미지', $currentIMG);
   // console.log('tip', '$이전이미지', $prevIMG);
   // console.log('tpi', '이전 인덱스', prevIndex);
   // console.log('tpi', '이미지인덱스', IMGindex);
   // console.log('tpi', '다음인덱스', nextIndex);
-  hide($currentIMG);
-  appear($prevIMG);
-  nextIndex = IMGindex;
-  IMGindex = prevIndex;
-  prevIndex = IMGindex !== 1 ? IMGindex - 1 : imgNumber; 
+  hide($currentIMG, currIMGindex);
+  appear($prevIMG, prevImgIndex);
+  nextImgIndex = currIMGindex;
+  currIMGindex = prevImgIndex;
+  prevImgIndex = currIMGindex !== 1 ? currIMGindex - 1 : imgNumber; 
   changeNoticeIMG();
 }
+
+// 다음 이미지로
 function toNextIMG() {
   clearInterval(interval);
-  const $currentIMG = document.querySelector(`#notice #img${IMGindex}`);
-  const $nextIMG = document.querySelector(`#notice #img${nextIndex}`);
+  const $currentIMG = document.querySelector(`#notice #img${currIMGindex}`);
+  const $nextIMG = document.querySelector(`#notice #img${nextImgIndex}`);
   // console.log('tni', '$커런트이미지', $currentIMG);
   // console.log('tni', '$다음이미지', $nextIMG);
   // console.log('tni', '이전 인덱스', prevIndex);
   // console.log('tni', '이미지인덱스', IMGindex);
   // console.log('tni', '다음인덱스', nextIndex);
-  hide($currentIMG);
-  appear($nextIMG);
-  prevIndex = IMGindex;
-  IMGindex = nextIndex;
-  nextIndex = IMGindex !== imgNumber ? IMGindex + 1 : 1;
+  hide($currentIMG, currIMGindex);
+  appear($nextIMG, nextImgIndex);
+  prevImgIndex = currIMGindex;
+  currIMGindex = nextImgIndex;
+  nextImgIndex = currIMGindex !== imgNumber ? currIMGindex + 1 : 1;
   changeNoticeIMG();
 }
-
 $previousBtn.addEventListener('click', toPreviousIMG);
 $nextBtn.addEventListener('click', toNextIMG);
 
